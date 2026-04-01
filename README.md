@@ -2,6 +2,103 @@
 
 
 
+
+## Estructura de archivos generados
+
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── Auth/
+│   │   │   └── AuthController.php        
+│   │   ├── CooperacionController.php        
+│   │   ├── ParticipanteController.php      
+│   │   ├── PagoController.php               
+│   │   └── DashboardController.php          
+│   └── Middleware/
+│       └── AdminMiddleware.php             
+├── Models/
+│   ├── User.php                            
+│   ├── Cooperacion.php                      
+│   ├── Participante.php                     
+│   └── Pago.php                             
+database/
+├── migrations/
+│   ├── ..._create_users_table.php           
+│   ├── ..._add_rol_to_users_table.php       
+│   ├── ..._create_cooperacions_table_UPDATED.php  
+│   ├── ..._create_pagos_table_UPDATED.php        
+│   └── ..._create_participantes_table.php   
+└── seeders/
+    └── DatabaseSeeder.php                   
+resources/views/
+├── layouts/
+│   └── app.blade.php                        
+├── auth/
+│   ├── login.blade.php
+│   └── register.blade.php
+├── dashboard/
+│   └── index.blade.php
+├── cooperaciones/
+│   ├── index.blade.php
+│   ├── create.blade.php
+│   ├── show.blade.php
+│   └── edit.blade.php
+└── pagos/
+    └── index.blade.php
+routes/
+└── web.php                                
+bootstrap/
+└── app.php                                
+```
+
+
+Sistema de Cooperaciones Comunitarias (SaaS)
+Se desarrollará una aplicación web tipo SaaS orientada a resolver la gestión de cooperaciones económicas en comunidades, donde actualmente el control se realiza de forma manual mediante libretas o registros informales, lo que genera pérdida de información, falta de transparencia y errores en el seguimiento de pagos.
+El sistema permitirá a los usuarios crear, administrar y dar seguimiento a cooperaciones (colectas de dinero) de forma digital, centralizada y confiable.
+Funcionalidades principales:
+1. Gestión de cooperaciones: El sistema permitirá crear cooperaciones definiendo nombre, descripción, monto objetivo, monto por persona y fecha límite. Cada cooperación estará asociada a un usuario creador.
+2. Registro de participantes: Se podrá llevar un control de las personas que participan en la cooperación, permitiendo identificar quiénes deben aportar y cuánto corresponde a cada uno.
+3. Registro de pagos: Los usuarios podrán registrar pagos realizados por cada participante, indicando monto, fecha y relación con la cooperación correspondiente.
+4. Control de estado: El sistema calculará automáticamente:
+* Total recaudado
+* Monto restante
+* Participantes que ya pagaron
+* Participantes pendientes
+1. Visualización y seguimiento: Cada cooperación tendrá una vista detallada donde se mostrará el progreso, historial de pagos y estado general.
+2. Transparencia: Todos los datos estarán disponibles en tiempo real para evitar conflictos o confusiones dentro de la comunidad.
+
+
+* Patrón MVC (Modelo - Vista - Controlador)
+* Relación entre entidades:
+   * Usuario → Cooperaciones (1:N)
+   * Cooperación → Pagos (1:N)
+   * Usuario → Pagos (1:N)
+
+Objetivo del sistema:
+Digitalizar y profesionalizar la gestión de cooperaciones comunitarias, proporcionando una herramienta simple, accesible y confiable que elimine el uso de papel y reduzca errores humanos.
+Visión a futuro:
+Escalar el sistema como una plataforma SaaS multiusuario donde diferentes comunidades puedan gestionar sus propias cooperaciones, incluyendo:
+* Autenticación completa
+* Roles (administrador, participante)
+* Pagos
+Este proyecto busca evolucionar de una solución local a un producto escalable con potencial comercial.
+
+
+
+
+## Credenciales de prueba
+
+| Rol | Email | Contraseña |
+|---|---|---|
+| Admin | admin@coopmanager.mx | password |
+| Miembro | ana@example.com | password |
+| Miembro | carlos@example.com | password |
+
+
+
+
+
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
